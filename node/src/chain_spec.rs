@@ -1,4 +1,4 @@
-use appchain_barnacle_runtime::{
+use octan_appchain_runtime::{
 	currency::EBAR,
 	opaque::{Block, SessionKeys},
 	AccountId, BabeConfig, Balance, BalancesConfig, GenesisAccount, GenesisConfig, GrandpaConfig,
@@ -15,7 +15,7 @@ use sp_consensus_babe::AuthorityId as BabeId;
 use sp_core::{Pair, Public};
 use sp_finality_grandpa::AuthorityId as GrandpaId;
 
-use appchain_barnacle_runtime::{EVMConfig, EthereumConfig};
+use octan_appchain_runtime::{EVMConfig, EthereumConfig};
 use std::str::FromStr;
 
 // The URL for the telemetry server.
@@ -83,9 +83,9 @@ pub fn development_config() -> Result<ChainSpec, String> {
 
 	Ok(ChainSpec::from_genesis(
 		// Name
-		"Development",
+		"Octan Appchain Development",
 		// ID
-		"dev",
+		"octan_dev",
 		ChainType::Development,
 		move || {
 			testnet_genesis(
@@ -111,7 +111,7 @@ pub fn development_config() -> Result<ChainSpec, String> {
 		// Properties
 		Some(
 			serde_json::from_str(
-				"{\"tokenDecimals\": 18, \"tokenSymbol\": \"EBAR\", \"SS58Prefix\": 1284}",
+				"{\"tokenDecimals\": 18, \"tokenSymbol\": \"OCTAN\", \"SS58Prefix\": 1284}",
 			)
 			.expect("Provided valid json map"),
 		),
@@ -125,15 +125,15 @@ pub fn local_testnet_config() -> Result<ChainSpec, String> {
 
 	Ok(ChainSpec::from_genesis(
 		// Name
-		"Local Testnet",
+		"Octan Appchain Local Testnet",
 		// ID
-		"local_testnet",
+		"octan_local_testnet",
 		ChainType::Local,
 		move || {
 			testnet_genesis(
 				wasm_binary,
 				// Initial PoA authorities
-				vec![authority_keys_from_seed("Alice"), authority_keys_from_seed("Bob")],
+				vec![authority_keys_from_seed("Alice")],
 				// Sudo account
 				AccountId::from_str("f24FF3a9CF04c71Dbc94D0b566f7A27B94566cac").unwrap(),
 				// Pre-funded accounts
@@ -153,7 +153,7 @@ pub fn local_testnet_config() -> Result<ChainSpec, String> {
 		// Properties
 		Some(
 			serde_json::from_str(
-				"{\"tokenDecimals\": 18, \"tokenSymbol\": \"EBAR\", \"SS58Prefix\": 1284}",
+				"{\"tokenDecimals\": 18, \"tokenSymbol\": \"OCTAN\", \"SS58Prefix\": 1284}",
 			)
 			.expect("Provided valid json map"),
 		),
@@ -220,7 +220,7 @@ fn testnet_genesis(
 		sudo: SudoConfig { key: Some(root_key) },
 		babe: BabeConfig {
 			authorities: vec![],
-			epoch_config: Some(appchain_barnacle_runtime::BABE_GENESIS_EPOCH_CONFIG),
+			epoch_config: Some(octan_appchain_runtime::BABE_GENESIS_EPOCH_CONFIG),
 		},
 		im_online: ImOnlineConfig { keys: vec![] },
 		grandpa: GrandpaConfig { authorities: vec![] },

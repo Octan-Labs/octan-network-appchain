@@ -9,7 +9,7 @@ module.exports = {
   networks: {
     barnacle: {
       url: process.env.BARNACLE_RPC_URL,
-      chainId: 1008,
+      chainId: 1281,
       accounts: [process.env.BARNACLE_DEPLOYER_PRIVATE_KEY, process.env.BARNACLE_ACCOUNT_PRIVATE_KEY]
     },
   }

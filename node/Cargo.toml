@@ -1,20 +1,20 @@
 [package]
-name = "appchain-barnacle"
+name = "octan-appchain"
 version = "0.9.18"
-description = "A minimal template for octopus appchain."
-authors = ["Octopus Network <hi@oct.network>"]
-homepage = "https://oct.network/"
+description = "Octan Blockchain"
+authors = ["Octan Labs <labs@octan.network>", "Octopus Network <hi@oct.network>"]
+homepage = "https://octan.network/"
 edition = "2021"
 license = "Apache-2.0"
 publish = false
-repository = "https://github.com/octopus-network/barnacle/"
+repository = "https://github.com/Octan-Labs/octan-network-appchain"
 build = "build.rs"
 
 [package.metadata.docs.rs]
 targets = ["x86_64-unknown-linux-gnu"]
 
 [[bin]]
-name = "appchain-barnacle"
+name = "octan-appchain"
 
 [dependencies]
 clap = { version = "3.0", features = ["derive"] }
@@ -88,11 +88,11 @@ frame-benchmarking = { version = "4.0.0-dev", git = "https://github.com/parityte
 frame-benchmarking-cli = { version = "4.0.0-dev", git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v0.9.18" }
 
 # Local Dependencies
-appchain-barnacle-runtime = { version = "0.9.18", path = "../runtime" }
+octan-appchain-runtime = { version = "0.9.18", path = "../runtime" }
 
 [build-dependencies]
 substrate-build-script-utils = { version = "3.0.0", git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v0.9.18" }
 
 [features]
 default = []
-runtime-benchmarks = ["appchain-barnacle-runtime/runtime-benchmarks"]
+runtime-benchmarks = ["octan-appchain-runtime/runtime-benchmarks"]

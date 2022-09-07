@@ -15,7 +15,7 @@ cargo build --release
 Then run it:
 
 ```
-./target/release/appchain-barnacle --dev --enable-offchain-indexing true
+./target/release/octan-appchain --dev --enable-offchain-indexing true
 ```
 
 Also, you can read these docs for more details:

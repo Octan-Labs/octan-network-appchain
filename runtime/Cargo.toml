@@ -1,13 +1,13 @@
 [package]
-name = "appchain-barnacle-runtime"
+name = "octan-appchain-runtime"
 version = "0.9.18"
-description = "A fresh FRAME-based appchain runtime, ready for hacking."
-authors = ["Octopus Network <hi@oct.network>"]
-homepage = "https://oct.network/"
+description = "Octan Blockchain Runtimes"
+authors = ["Octan Labs <labs@octan.network>", "Octopus Network <hi@oct.network>"]
+homepage = "https://octan.network/"
 edition = "2021"
 license = "Apache-2.0"
 publish = false
-repository = "https://github.com/octopus-network/barnacle/"
+repository = "https://github.com/Octan-Labs/octan-network-appchain"
 
 [package.metadata.docs.rs]
 targets = ["x86_64-unknown-linux-gnu"]

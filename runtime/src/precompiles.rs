@@ -18,12 +18,12 @@ pub struct NativeErc20Metadata;
 impl Erc20Metadata for NativeErc20Metadata {
 	/// Returns the name of the token.
 	fn name() -> &'static str {
-		"barnacle token"
+		"OCTAN token"
 	}
 
 	/// Returns the symbol of the token.
 	fn symbol() -> &'static str {
-		"EBAR"
+		"OCTAN"
 	}
 
 	/// Returns the decimals places of the token.

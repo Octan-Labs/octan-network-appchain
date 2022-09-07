@@ -136,7 +136,7 @@ pub mod opaque {
 #[sp_version::runtime_version]
 pub const VERSION: RuntimeVersion = RuntimeVersion {
 	spec_name: create_runtime_str!("jaz"),
-	impl_name: create_runtime_str!("appchain-barnacle"),
+	impl_name: create_runtime_str!("octan-appchain"),
 	authoring_version: 1,
 	// The version of the runtime specification. A full node will not attempt to use its native
 	//   runtime in substitute for the on-chain Wasm runtime unless all of `spec_name`,
@@ -150,7 +150,7 @@ pub const VERSION: RuntimeVersion = RuntimeVersion {
 	state_version: 1,
 };
 
-/// EBAR, the native token, uses 18 decimals of precision.
+/// OCTAN, the native token, uses 18 decimals of precision.
 pub mod currency {
 	use super::Balance;
 
@@ -817,10 +817,10 @@ impl pallet_sudo::Config for Runtime {
 	type Call = Call;
 }
 
-/// Configure the pallet-template in pallets/template.
-impl pallet_template::Config for Runtime {
-	type Event = Event;
-}
+// /// Configure the pallet-template in pallets/template.
+// impl pallet_template::Config for Runtime {
+// 	type Event = Event;
+// }
 
 // Create the runtime by composing the FRAME pallets that were previously configured.
 construct_runtime!(
@@ -855,8 +855,6 @@ construct_runtime!(
 		DynamicFee: pallet_dynamic_fee,
 		BaseFee: pallet_base_fee,
 		Sudo: pallet_sudo,
-		// Include the custom logic from the pallet-template in the runtime.
-		TemplateModule: pallet_template,
 	}
 );
 
