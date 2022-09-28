@@ -2,11 +2,13 @@ version: "3.2"
 
 services:
   dev:
-    container_name: octan-appchain
-    image: paritytech/ci-linux:974ba3ac-20201006
+    container_name: octan-appchain-dev
+    image: paritytech/ci-linux:1c0fde6a-20220811
+    restart: always
     working_dir: /var/www/octan-appchain
     ports:
       - "9944:9944"
+      - "9933:9933"
     environment:
       - CARGO_HOME=/var/www/octan-appchain/.cargo
     volumes:
@@ -15,3 +17,21 @@ services:
         source: ./.local
         target: /root/.local
     command: bash -c "cargo build --release && ./target/release/octan-appchain --dev --ws-external"
+  local-testnet:
+    container_name: octan-appchain-local-testnet
+    image: paritytech/ci-linux:1c0fde6a-20220811
+    restart: always
+    working_dir: /var/www/octan-appchain
+    ports:
+      - "30333:30333"
+      - "9944:9944"
+      - "9933:9933"
+      - "9615:9615"
+    environment:
+      - CARGO_HOME=/var/www/octan-appchain/.cargo
+    volumes:
+      - .:/var/www/octan-appchain
+      - type: bind
+        source: ./.local
+        target: /root/.local
+    command: bash -c "./target/release/octan-appchain --base-path ./.local --alice --pruning archive --chain local --rpc-external --rpc-cors all --ws-external"
